@@ -6,7 +6,11 @@ const alpha_numeric_regex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/g;
 const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function validateCombo ( value,rules ) {
     // console.log(value)
+    // console.log(typeof value)
+    // const val = (typeof value === 'string') ? value.trim() : value.toString().trim()
     const val = value.toString().trim()
+    // const val=value
+    // console.log( val )
     if ( rules.includes( 'REQUIRED' ) && val === '' ) return ( 'This Field is required' )
     if ( rules.includes( 'ALPHANUMERIC' ) && val.match( alpha_numeric_regex ) ) return ( 'only alphanumeric characters' )
     if ( rules.includes( 'NODIGIT' ) && val.match( no_digit_regex ) ) return ( 'No digits are allowed' )
